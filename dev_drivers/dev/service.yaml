@@ -9,4 +9,7 @@ spec:
   - port: 4500
     protocol: TCP
     targetPort: 4500
+  type: LoadBalancer
+status:
+  loadBalancer: {}
   
