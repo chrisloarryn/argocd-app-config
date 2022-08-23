@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: drivers-argo-application
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/chrisloarryn/argocd-app-config.git
+    targetRevision: HEAD
+    path: dev_drivers/dev
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: myapp_drivers
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true

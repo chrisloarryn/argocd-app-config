@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service-drivers
+spec:
+  selector:
+    app: myapp-drivers
+  ports:
+  - port: 4500
+    protocol: TCP
+    targetPort: 4500
+  
